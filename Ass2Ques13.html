@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+    <style>
+        .outer, .middle, .inner {
+          padding: 40px;
+          margin: 10px;
+          border: 2px solid black;
+        }
+        .outer { background-color: #f8d7da; }
+        .middle { background-color: #d1ecf1; }
+        .inner { background-color: #d4edda; }
+      </style>
+</head>
+<body>
+    <div class="outer">
+        Outer Div
+        <button>Outer Button</button>
+    
+        <div class="middle">
+          Middle Div
+          <button>Middle Button</button>
+    
+          <div class="inner">
+            Inner Div
+            <button>Inner Button</button>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        // add both bubbling and capturing listeners
+        function addListeners(element, name) {
+          // Capturing phase 
+          element.addEventListener('click', function(e) {
+            alert(`${name} (capturing)`);
+          }, true);
+    
+          // Bubbling phase 
+          element.addEventListener('click', function(e) {
+            alert(`${name} (bubbling)`);
+          });
+        }
+    
+        // Adding listeners to divs
+        const outerDiv = document.querySelector('.outer');
+        const middleDiv = document.querySelector('.middle');
+        const innerDiv = document.querySelector('.inner');
+    
+        addListeners(outerDiv, 'Outer Div');
+        addListeners(middleDiv, 'Middle Div');
+        addListeners(innerDiv, 'Inner Div');
+    
+        // Add listeners to all buttons
+        const outerBtn = outerDiv.querySelector('button');
+        const middleBtn = middleDiv.querySelector('button');
+        const innerBtn = innerDiv.querySelector('button');
+    
+        addListeners(outerBtn, 'Outer Button');
+        addListeners(middleBtn, 'Middle Button');
+    
+        // Inner button with stopPropagation
+        innerBtn.addEventListener('click', function(e) {
+          alert('Inner Button (capturing)');
+        }, true);
+    
+        innerBtn.addEventListener('click', function(e) {
+          alert('Inner Button (bubbling)');
+          e.stopPropagation(); // Stops the event 
+        });
+        </script>
+</body>
+</html>
