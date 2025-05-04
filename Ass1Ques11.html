@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation Example</title>
+  <style>
+    .container {
+      padding: 20px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-title">Hello, World!</h1>
+
+  <p>This is the first paragraph.</p>
+  <p>This is the second paragraph.</p>
+  <p>This is the third paragraph.</p>
+
+  <div class="container">
+    <p>This is inside the container.</p>
+  </div>
+
+  <script>
+    const header = document.getElementById('main-title');
+    header.textContent = "Welcome to the DOM World!";
+
+    const paragraphs = document.getElementsByTagName('p');
+    for (let paragraph of paragraphs) {
+      paragraph.style.color = 'blue';
+    }
+
+    const container = document.querySelector('.container');
+    container.style.backgroundColor = 'yellow';
+  </script>
+
+</body>
+</html>
