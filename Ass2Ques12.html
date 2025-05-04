@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Click Handler</title>
+    <style>
+        #container {
+          font-family: Arial, sans-serif;
+          padding: 20px;
+        }
+        li {
+          cursor: pointer;
+          margin: 5px 0;
+        }
+      </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="list">
+          <li id="item1">Item 1</li>
+          <li id="item2">Item 2</li>
+          <li id="item3">Item 3</li>
+        </ul>
+      </div>
+    
+      <script>
+        const item2 = document.getElementById('item2');
+    
+        item2.addEventListener('click', function () {
+          alert(item2.parentNode.textContent.trim());
+    
+          const prev = item2.previousElementSibling;
+          const next = item2.nextElementSibling;
+    
+          if (prev) {
+            console.log('Previous Sibling:', prev.textContent);
+          }
+          if (next) {
+            console.log('Next Sibling:', next.textContent);
+          }
+        });
+      </script>
+    
+</body>
+</html>
