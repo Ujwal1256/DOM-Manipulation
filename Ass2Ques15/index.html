@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .task-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Task Management</h1>
+
+  <div>
+    <input type="text" id="taskInput" placeholder="Enter a new task" />
+    <button id="addTaskButton">Add Task</button>
+  </div>
+
+  <div>
+    <button id="showAllTasks">Show All Tasks</button>
+    <button id="showCompletedTasks">Show Completed</button>
+    <button id="showIncompleteTasks">Show Incomplete</button>
+  </div>
+
+  <ul id="taskList" class="task-list"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
